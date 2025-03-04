@@ -1,10 +1,34 @@
 package com.ecom.store.Product;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table
 public class Product {
 
+    @Id
+    @SequenceGenerator(
+            name = "product_sequence",
+            sequenceName = "student_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "product_sequence"
+    )
     private int id;
+
+    @Column (
+            length = 50
+    )
+
     private String name;
+
+    @Column
     private String price;
+
+    @Column
     private int quantity;
 
     public Product() {
